@@ -11,8 +11,8 @@ public class App {
     public static void main(String[] args) {
 
         System.out.println("Preparing to send message");
-        String message = "Hello! This message was sent to annoy you.";
-        String subject = "Annoy";
+        String message = "Hello! This message was sent to annoy you."; // Type the message you want to send here
+        String subject = "Annoy"; // Type the subject of your message
         String to = "receiver_emailaddress"; // Enter the email address of the receiver
         String from = "sender_emailaddress"; // Enter the email address of the sender
 
