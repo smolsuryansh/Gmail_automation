@@ -6,15 +6,22 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import java.io.File;
 import java.util.Properties;
+import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
 
+        Scanner sc = new Scanner(System.in);
+
         System.out.println("Preparing to send message");
-        String message = "Hello! This message was sent to annoy you."; // Type the message you want to send here
-        String subject = "Annoy"; // Type the subject of your message
-        String to = "receiver_emailaddress"; // Enter the email address of the receiver
-        String from = "sender_emailaddress"; // Enter the email address of the sender
+        System.out.println("Type in your message: ");
+        String message = sc.nextLine(); // Type the message you want to send here
+        System.out.println("What should your subject be?: ");
+        String subject = sc.nextLine(); // Type the subject of your message
+        System.out.println("Type in the email address of the receiver: ");
+        String to = sc.nextLine(); // Enter the email address of the receiver
+        System.out.println("Type in the email address of the sender: ");
+        String from = sc.nextLine(); // Enter the email address of the sender
 
 //        sendEmail(message, subject, to, from); // Uncomment if you want to send only text and vice versa
         sendAttach(message, subject, to, from); // Comment if you want to send text with attachment and vice versa
@@ -40,7 +47,10 @@ public class App {
 //        Session session = Session.getInstance(properties, new Authenticator() {
 //            @Override
 //            protected PasswordAuthentication getPasswordAuthentication() {
-//                return new PasswordAuthentication("sender_email", "sender_password"); // Enter sender's Email address and its password
+//                Scanner sc = new Scanner(System.in);
+//                System.out.println("Type in sender's password here: ");
+//                String pw = sc.nextLine();
+//                return new PasswordAuthentication(from, pw); // Enter sender's Email address and its password
 //            }
 //        });
 //
@@ -89,7 +99,10 @@ public class App {
         Session session = Session.getInstance(properties, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("sender_emailaddress", "sender_password"); // Enter sender's Email address and its password
+                Scanner sc = new Scanner(System.in);
+                System.out.println("Type in sender's password here: ");
+                String pw = sc.nextLine();
+                return new PasswordAuthentication(from, pw); // Enter sender's Email address and its password
             }
         });
 
@@ -104,7 +117,9 @@ public class App {
             mimeMessage.setSubject(subject); // Adding subject to message
 
             // Attachment
-            String path = "attachment_path"; // File path
+            Scanner sc = new Scanner(System.in);
+            System.out.println("The path of your file: ");
+            String path = sc.nextLine(); // File path
 
             MimeMultipart mimeMultipart = new MimeMultipart();
 
