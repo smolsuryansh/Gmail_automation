@@ -12,6 +12,7 @@ public class App {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
+        // mai chutiya hu - vedant
 
         System.out.println("Preparing to send message");
         System.out.println("Type in your message: ");
